@@ -52325,6 +52325,7 @@ var Documents = function (_Component2) {
         };
 
         cozy.client.files.statByPath('/Documents').catch(function () {
+            console.log('Creating Documents');
             return cozy.client.files.createDirectory({
                 name: '/Documents', lastModified: new Date()
             }).then(function (result) {
@@ -52345,6 +52346,8 @@ var Documents = function (_Component2) {
                     tags: ['folder-travaux-et-entretien'],
                     dirID: result._id
                 })]);
+            }).then(function () {
+                return _this3.loadDocuments(_this3.state.path);
             });
         });
 
