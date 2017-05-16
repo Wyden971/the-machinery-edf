@@ -52325,7 +52325,9 @@ var Documents = function (_Component2) {
         };
 
         cozy.client.files.statByPath('/Documents').catch(function () {
-            return cozy.client.files.createDirectory('/Documents');
+            cozy.client.files.createDirectory({
+                name: '/Documents', lastModified: new Date()
+            });
 
             cozy.client.files.createDirectory('/Documents/Équipements', {
                 tags: ['folder-equipements']
