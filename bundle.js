@@ -52324,21 +52324,25 @@ var Documents = function (_Component2) {
             viewMode: localStorage.documentsViewMode || false
         };
 
-        cozy.client.files.updateAttributesByPath('/Documents/Équipements', {
-            tags: ['folder-equipements']
-        }).then(function (result) {});
+        cozy.client.files.statByPath('/Documents').catch(function () {
+            return cozy.client.files.createDirectory('/Documents');
 
-        cozy.client.files.updateAttributesByPath('/Documents/Équipements', {
-            tags: ['folder-equipements']
-        }).then(function (result) {});
+            cozy.client.files.createDirectory('/Documents/Équipements', {
+                tags: ['folder-equipements']
+            }).then(function (result) {});
 
-        cozy.client.files.updateAttributesByPath('/Documents/Documents de propriété', {
-            tags: ['folder-document-de-propriete']
-        }).then(function (result) {});
+            cozy.client.files.createDirectory('/Documents/Équipements', {
+                tags: ['folder-equipements']
+            }).then(function (result) {});
 
-        cozy.client.files.updateAttributesByPath('/Documents/Travaux et entretien', {
-            tags: ['folder-travaux-et-entretien']
-        }).then(function (result) {});
+            cozy.client.files.createDirectory('/Documents/Documents de propriété', {
+                tags: ['folder-document-de-propriete']
+            }).then(function (result) {});
+
+            cozy.client.files.createDirectory('/Documents/Travaux et entretien', {
+                tags: ['folder-travaux-et-entretien']
+            }).then(function (result) {});
+        });
 
         Object.defineProperty(_this3, 'allSelected', {
             get: function get() {
