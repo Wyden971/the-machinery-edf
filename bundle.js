@@ -52406,6 +52406,7 @@ var Documents = function (_Component2) {
         value: function loadDocuments(path) {
             var _this5 = this;
 
+            this.setState({ loading: true });
             cozy.client.files.statByPath(path).then(function (result) {
                 var documents = [];
 
@@ -52418,6 +52419,10 @@ var Documents = function (_Component2) {
                     documents: documents,
                     isRoot: path == '/Documents'
                 });
+            }).then(function () {
+                return _this5.setState({ loading: false });
+            }).catch(function () {
+                return _this5.setState({ loading: false });
             });
         }
     }, {
@@ -52565,9 +52570,61 @@ var Documents = function (_Component2) {
             });
         }
     }, {
+        key: '_renderDocuments',
+        value: function _renderDocuments() {
+            var _this10 = this;
+
+            if (this.state.documents.length == 0) return null;
+
+            return _react2.default.createElement(
+                'div',
+                { className: (0, _classnames2.default)({
+                        "document-list": true,
+                        "view-mode-grid": this.state.viewMode,
+                        "view-mode-line": !this.state.viewMode
+                    }) },
+                this.state.documents.map(function (item, key) {
+                    return _react2.default.createElement(Document, {
+                        key: key,
+                        item: item,
+                        onItemSelected: function onItemSelected(item) {
+                            return _this10.onItemSelected(item);
+                        },
+                        onOpenItem: function onOpenItem(e, item) {
+                            return _this10.openItem(e, item);
+                        },
+                        onItemClicked: function onItemClicked(e, item) {
+                            return _this10.onItemClicked(e, item);
+                        }
+                    });
+                })
+            );
+        }
+    }, {
+        key: '_renderEmptyFolder',
+        value: function _renderEmptyFolder() {
+            if (this.state.loading || this.state.documents.length > 0) return null;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'text-center padding' },
+                'Le dossier est vide'
+            );
+        }
+    }, {
+        key: '_renderLoading',
+        value: function _renderLoading() {
+            if (!this.state.loading) return null;
+            return _react2.default.createElement(
+                'div',
+                { className: 'loading' },
+                _react2.default.createElement('img', { src: '/images/progress.gif', alt: '' })
+            );
+        }
+    }, {
         key: 'render',
         value: function render() {
-            var _this10 = this;
+            var _this11 = this;
 
             var nbSelected = this.getNbSelected();
 
@@ -52576,25 +52633,26 @@ var Documents = function (_Component2) {
                 { title: 'Documents', className: 'documents', actions: [nbSelected > 0 ? _react2.default.createElement(
                         'button',
                         { type: 'button', onClick: function onClick() {
-                                return _this10.downloadSelected();
+                                return _this11.downloadSelected();
                             }, className: 'button button-stable' },
                         _react2.default.createElement('i', { className: 'ion-ios-cloud-download-outline' }),
                         ' TELECHARGER'
                     ) : null, nbSelected > 0 ? _react2.default.createElement(
                         'button',
                         { type: 'button', onClick: function onClick() {
-                                return _this10.removeSelectedFiles();
-                            }, className: 'button button-assertive' },
+                                return _this11.removeSelectedFiles();
+                            },
+                            className: 'button button-assertive' },
                         _react2.default.createElement('i', { className: 'ion-ios-trash-outline' }),
                         ' SUPPRIMER'
                     ) : null, _react2.default.createElement(
                         'button',
                         { type: 'button', onClick: function onClick() {
-                                return _this10.importFile();
+                                return _this11.importFile();
                             },
                             className: 'button button-default button-import' },
                         _react2.default.createElement('input', { ref: 'file', type: 'file', onChange: function onChange(e) {
-                                return _this10.onFileChange(e);
+                                return _this11.onFileChange(e);
                             }, multiple: 'true' }),
                         _react2.default.createElement('i', { className: 'ion-ios-upload-outline' }),
                         ' IMPORTER UN DOCUMENT'
@@ -52607,9 +52665,9 @@ var Documents = function (_Component2) {
                             _react2.default.createElement(
                                 'li',
                                 { onClick: function onClick() {
-                                        var viewMode = !_this10.state.viewMode;
+                                        var viewMode = !_this11.state.viewMode;
                                         localStorage.documentsViewMode = viewMode;
-                                        _this10.setState({ viewMode: viewMode });
+                                        _this11.setState({ viewMode: viewMode });
                                     } },
                                 this.state.viewMode ? _react2.default.createElement(
                                     _LabeLicon2.default,
@@ -52624,7 +52682,7 @@ var Documents = function (_Component2) {
                             _react2.default.createElement(
                                 'li',
                                 { onClick: function onClick() {
-                                        return _this10.createDirectory();
+                                        return _this11.createDirectory();
                                     } },
                                 _react2.default.createElement(
                                     _LabeLicon2.default,
@@ -52643,7 +52701,7 @@ var Documents = function (_Component2) {
                             )
                         )
                     )], backEnabled: !this.state.isRoot, onBackPress: function onBackPress() {
-                        return _this10.onBackPress();
+                        return _this11.onBackPress();
                     } },
                 _react2.default.createElement(
                     _Section2.default,
@@ -52652,33 +52710,9 @@ var Documents = function (_Component2) {
                             null,
                             '\xA0'
                         ) },
-                    this.state.documents.length > 0 ? _react2.default.createElement(
-                        'div',
-                        { className: (0, _classnames2.default)({
-                                "document-list": true,
-                                "view-mode-grid": this.state.viewMode,
-                                "view-mode-line": !this.state.viewMode
-                            }) },
-                        this.state.documents.map(function (item, key) {
-                            return _react2.default.createElement(Document, {
-                                key: key,
-                                item: item,
-                                onItemSelected: function onItemSelected(item) {
-                                    return _this10.onItemSelected(item);
-                                },
-                                onOpenItem: function onOpenItem(e, item) {
-                                    return _this10.openItem(e, item);
-                                },
-                                onItemClicked: function onItemClicked(e, item) {
-                                    return _this10.onItemClicked(e, item);
-                                }
-                            });
-                        })
-                    ) : _react2.default.createElement(
-                        'div',
-                        { className: 'text-center padding' },
-                        'Le dossier est vide'
-                    )
+                    this._renderDocuments(),
+                    this._renderEmptyFolder(),
+                    this._renderLoading()
                 )
             );
         }
