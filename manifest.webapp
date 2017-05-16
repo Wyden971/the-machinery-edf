@@ -1,0 +1,37 @@
+{
+  "name": "Homebook",
+  "slug": "homebook",
+  "icon": "icon.svg",
+  "description": "Description homebook",
+  "version": "3.0.0",
+  "licence": "AGPL-3.0",
+  "source": "https://github.com/zanmi/test.git@build",
+  "developer": {
+    "name": "The machinery",
+    "url": "https://www.the-machinery.com"
+  },
+  "default_locale": "fr",
+  "locales": {},
+  "routes": {
+    "/": {
+      "folder": "/",
+      "index": "index.html",
+      "public": false
+    }
+  },
+  "permissions": {
+    "apps": {
+      "description": "Required by the cozy-bar to display the icons of the apps",
+      "type": "io.cozy.apps",
+      "verbs": ["GET"]
+    },
+    "files": {
+      "description": "App required files access",
+      "type": "io.cozy.files"
+    },
+    "contact": {
+        "description" : "App required contact access",
+        "type": "io.cozy.contacts"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="{{.Locale}}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="lib/Ionicons/css/ionicons.min.css"/>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+
+    <script src="lib/CozyClientJS/cozy-client.min.js"></script>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/moment/min/moment-with-locales.min.js"></script>
+
+
+    <!-- {{.CozyClientJS}} -->
+
+
+    <title>Homebook</title>
+</head>
+<body>
+
+<div id="root" role="application" data-token="{{.Token}}" data-cozy-stack="{{.Domain}}"></div>
+
+<script src="bundle.js"></script>
+</body>
+</html>
