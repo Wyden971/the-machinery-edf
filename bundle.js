@@ -52229,6 +52229,24 @@ var Document = function (_Component) {
             var icon = type == 'file' ? 'file' : 'folder';
             var tags = item.attributes.tags || [];
 
+            switch (item.attributes.name) {
+                case 'Diagnostics':
+                    icon = 'folder-diagnostic';
+                    break;
+
+                case 'Documents de propriété':
+                    icon = 'folder-document-de-propriete';
+                    break;
+
+                case 'Équipements':
+                    icon = 'folder-equipements';
+                    break;
+
+                case 'Travaux et entretien':
+                    icon = 'folder-travaux-et-entretien';
+                    break;
+            }
+
             tags.forEach(function (item) {
                 if (/^folder-/.test(item)) {
                     icon = item;
@@ -52334,34 +52352,18 @@ var Documents = function (_Component2) {
                     name: 'Diagnostics',
                     tags: ['folder-diagnostic'],
                     dirID: result._id
-                }).then(function (result) {
-                    return cozy.client.files.updateById(result._id, {
-                        tags: ['folder-diagnostic']
-                    });
                 }), cozy.client.files.createDirectory({
                     name: 'Équipements',
                     tags: ['folder-equipements'],
                     dirID: result._id
-                }).then(function () {
-                    return cozy.client.files.updateById(result._id, {
-                        tags: ['folder-equipements']
-                    });
                 }), cozy.client.files.createDirectory({
                     name: 'Documents de propriété',
                     tags: ['folder-document-de-propriete'],
                     dirID: result._id
-                }).then(function () {
-                    return cozy.client.files.updateById(result._id, {
-                        tags: ['folder-document-de-propriete']
-                    });
                 }), cozy.client.files.createDirectory({
                     name: 'Travaux et entretien',
                     tags: ['folder-travaux-et-entretien'],
                     dirID: result._id
-                }).then(function () {
-                    return cozy.client.files.updateById(result._id, {
-                        tags: ['folder-travaux-et-entretien']
-                    });
                 })]);
             }).then(function () {
                 return _this3.loadDocuments(_this3.state.path);
