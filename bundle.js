@@ -52335,7 +52335,7 @@ var Documents = function (_Component2) {
                     tags: ['folder-diagnostic'],
                     dirID: result._id
                 }).then(function (result) {
-                    return cozy.client.files.updateById(result.id, {
+                    return cozy.client.files.updateById(result._id, {
                         tags: ['folder-diagnostic']
                     });
                 }), cozy.client.files.createDirectory({
@@ -52343,7 +52343,7 @@ var Documents = function (_Component2) {
                     tags: ['folder-equipements'],
                     dirID: result._id
                 }).then(function () {
-                    return cozy.client.files.updateById(result.id, {
+                    return cozy.client.files.updateById(result._id, {
                         tags: ['folder-equipements']
                     });
                 }), cozy.client.files.createDirectory({
@@ -52351,7 +52351,7 @@ var Documents = function (_Component2) {
                     tags: ['folder-document-de-propriete'],
                     dirID: result._id
                 }).then(function () {
-                    return cozy.client.files.updateById(result.id, {
+                    return cozy.client.files.updateById(result._id, {
                         tags: ['folder-document-de-propriete']
                     });
                 }), cozy.client.files.createDirectory({
@@ -52359,7 +52359,7 @@ var Documents = function (_Component2) {
                     tags: ['folder-travaux-et-entretien'],
                     dirID: result._id
                 }).then(function () {
-                    return cozy.client.files.updateById(result.id, {
+                    return cozy.client.files.updateById(result._id, {
                         tags: ['folder-travaux-et-entretien']
                     });
                 })]);
