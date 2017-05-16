@@ -52324,10 +52324,10 @@ var Documents = function (_Component2) {
             viewMode: localStorage.documentsViewMode || false
         };
 
-        cozy.client.files.statByPath('/DocumentsTest').catch(function () {
+        cozy.client.files.statByPath('/Documents').catch(function () {
             console.log('Creating Documents');
             return cozy.client.files.createDirectory({
-                name: '/Documents',
+                name: 'Documents',
                 lastModified: new Date()
             }).then(function (result) {
                 return Promise.all([cozy.client.files.createDirectory({
