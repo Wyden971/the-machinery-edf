@@ -52331,8 +52331,8 @@ var Documents = function (_Component2) {
                 lastModified: new Date()
             }).then(function (result) {
                 return Promise.all([cozy.client.files.createDirectory({
-                    name: 'Équipements',
-                    tags: ['folder-equipements'],
+                    name: 'Diagnostics',
+                    tags: ['folder-diagnostic'],
                     dirID: result._id
                 }), cozy.client.files.createDirectory({
                     name: 'Équipements',
