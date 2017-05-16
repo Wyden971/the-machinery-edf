@@ -52334,18 +52334,34 @@ var Documents = function (_Component2) {
                     name: 'Diagnostics',
                     tags: ['folder-diagnostic'],
                     dirID: result._id
+                }).then(function (result) {
+                    return cozy.client.files.updateById(result.id, {
+                        tags: ['folder-diagnostic']
+                    });
                 }), cozy.client.files.createDirectory({
                     name: 'Équipements',
                     tags: ['folder-equipements'],
                     dirID: result._id
+                }).then(function () {
+                    return cozy.client.files.updateById(result.id, {
+                        tags: ['folder-equipements']
+                    });
                 }), cozy.client.files.createDirectory({
                     name: 'Documents de propriété',
                     tags: ['folder-document-de-propriete'],
                     dirID: result._id
+                }).then(function () {
+                    return cozy.client.files.updateById(result.id, {
+                        tags: ['folder-document-de-propriete']
+                    });
                 }), cozy.client.files.createDirectory({
                     name: 'Travaux et entretien',
                     tags: ['folder-travaux-et-entretien'],
                     dirID: result._id
+                }).then(function () {
+                    return cozy.client.files.updateById(result.id, {
+                        tags: ['folder-travaux-et-entretien']
+                    });
                 })]);
             }).then(function () {
                 return _this3.loadDocuments(_this3.state.path);
