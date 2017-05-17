@@ -52563,9 +52563,11 @@ var Documents = function (_Component2) {
                     var app = document.querySelector('[role="application"]');
                     var domain = app.dataset.cozyStack;
 
-                    setTimeout(function () {
-                        window.open('//' + domain + item.links.self);
-                    }, 100);
+                    var link = cozy.client.files.getDownloadLinkById(item._id).then(function (url) {
+                        setTimeout(function () {
+                            window.open('//' + domain + url);
+                        }, 100);
+                    });
                 }
             });
         }
