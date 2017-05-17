@@ -52560,12 +52560,12 @@ var Documents = function (_Component2) {
             this.state.documents.forEach(function (item) {
 
                 if (item.selected) {
-                    var link = cozy.client.files.getDownloadLinkById(item._id).then(function (url) {
-                        console.log(item);
-                        setTimeout(function () {
-                            window.open(url, '_blank');
-                        }, 100);
-                    });
+                    var app = document.querySelector('[role="application"]');
+                    var domain = app.dataset.cozyStack;
+
+                    setTimeout(function () {
+                        window.open('//' + domain + item.links.self);
+                    }, 100);
                 }
             });
         }
@@ -52779,7 +52779,7 @@ var Footer = function (_Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'footer-container' },
-                    'HOMEBOOK est un service propos\xE9 par edf pour mdc'
+                    'HOMEBOOK est un service propos\xE9 par edf'
                 )
             );
         }
