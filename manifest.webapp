@@ -32,6 +32,24 @@
     "contact": {
         "description" : "App required contact access",
         "type": "io.cozy.contacts"
-    }
+    },
+    "data-equipment": {
+        "description" : "App required data equipment access",
+        "type": "com.homebook.equipment"
+    },
+    "data-work": {
+        "description" : "App required data work access",
+        "type": "com.homebook.work"
+    },
+    "data-diagnosis": {
+        "description" : "App required data diagnosis access",
+        "type": "com.homebook.diagnosis"
+    },
+     "mail": {
+       "description": "Required to send a congratulations email to your friends",
+       "type": "io.cozy.jobs",
+       "selector": "worker",
+       "values": ["sendmail"]
+     }
   }
 }
