@@ -52295,6 +52295,10 @@ __webpack_require__(502);
 
 var _reactRouterDom = __webpack_require__(31);
 
+var _InConstruction = __webpack_require__(747);
+
+var _InConstruction2 = _interopRequireDefault(_InConstruction);
+
 var _Header = __webpack_require__(309);
 
 var _Header2 = _interopRequireDefault(_Header);
@@ -52350,6 +52354,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+;
 
 var App = function (_Component) {
     _inherits(App, _Component);
@@ -52407,12 +52413,12 @@ var App = function (_Component) {
                         ),
                         _react2.default.createElement(_reactRouterDom.Route, { path: '/Documents/:path*', component: _Documents2.default, type: 'switch' }),
                         _react2.default.createElement(_reactRouterDom.Route, { path: '/donnees', component: _Data2.default, type: 'switch' }),
-                        _react2.default.createElement(_reactRouterDom.Route, { path: '/rappels', component: _Notes2.default, type: 'switch' }),
-                        _react2.default.createElement(_reactRouterDom.Route, { path: '/contacts', component: _Contacts2.default, type: 'switch' }),
-                        _react2.default.createElement(_reactRouterDom.Route, { path: '/notifications', component: _Notifications2.default, type: 'switch' }),
-                        _react2.default.createElement(_reactRouterDom.Route, { path: '/preferences', component: _Preferences2.default, type: 'switch' }),
-                        _react2.default.createElement(_reactRouterDom.Route, { path: '/aide', component: _Help2.default, type: 'switch' }),
-                        _react2.default.createElement(_reactRouterDom.Route, { path: '/a-propos', component: _About2.default, type: 'switch' })
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/rappels', component: _InConstruction2.default, type: 'switch' }),
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/contacts', component: _InConstruction2.default, type: 'switch' }),
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/notifications', component: _InConstruction2.default, type: 'switch' }),
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/preferences', component: _InConstruction2.default, type: 'switch' }),
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/aide', component: _InConstruction2.default, type: 'switch' }),
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/a-propos', component: _InConstruction2.default, type: 'switch' })
                     ),
                     _react2.default.createElement(_Footer2.default, null)
                 )
@@ -52739,7 +52745,8 @@ var Data = function (_Component) {
             this.setState({
                 loading: true,
                 dataList: [],
-                item: item
+                item: item,
+                updating: false
             });
 
             if (!item) {
@@ -52816,6 +52823,10 @@ var Data = function (_Component) {
     }, {
         key: "onBackPress",
         value: function onBackPress() {
+            this.setState({
+                updating: false
+            });
+
             if (this.state.item && this.state.item._id) {
                 this.loadDatas(this.state.category);
             } else if (this.state.item) {
@@ -83615,6 +83626,83 @@ __webpack_require__(299);
 __webpack_require__(298);
 module.exports = __webpack_require__(296);
 
+
+/***/ }),
+/* 724 */,
+/* 725 */,
+/* 726 */,
+/* 727 */,
+/* 728 */,
+/* 729 */,
+/* 730 */,
+/* 731 */,
+/* 732 */,
+/* 733 */,
+/* 734 */,
+/* 735 */,
+/* 736 */,
+/* 737 */,
+/* 738 */,
+/* 739 */,
+/* 740 */,
+/* 741 */,
+/* 742 */,
+/* 743 */,
+/* 744 */,
+/* 745 */,
+/* 746 */,
+/* 747 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var InConstruction = function (_Component) {
+    _inherits(InConstruction, _Component);
+
+    function InConstruction(props, context) {
+        _classCallCheck(this, InConstruction);
+
+        return _possibleConstructorReturn(this, (InConstruction.__proto__ || Object.getPrototypeOf(InConstruction)).call(this, props, context));
+    }
+
+    _createClass(InConstruction, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "text-center padding" },
+                _react2.default.createElement(
+                    "h1",
+                    null,
+                    "Application en construction"
+                )
+            );
+        }
+    }]);
+
+    return InConstruction;
+}(_react.Component);
+
+exports.default = InConstruction;
 
 /***/ })
 /******/ ]);
