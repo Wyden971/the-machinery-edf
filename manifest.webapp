@@ -45,6 +45,10 @@
         "description" : "App required data diagnosis access",
         "type": "com.homebook.diagnosis"
     },
+    "data-homeData": {
+        "description" : "App required data homeData access",
+        "type": "com.homebook.homeData"
+    },
      "mail": {
        "description": "Required to send a congratulations email to your friends",
        "type": "io.cozy.jobs",
