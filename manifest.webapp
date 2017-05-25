@@ -49,6 +49,10 @@
         "description" : "App required data homeData access",
         "type": "com.homebook.homeData"
     },
+    "contacts": {
+        "description" : "App required contacts access",
+        "type": "com.homebook.contacts"
+    },
      "mail": {
        "description": "Required to send a congratulations email to your friends",
        "type": "io.cozy.jobs",

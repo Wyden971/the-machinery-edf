@@ -19,8 +19,9 @@
     <title>Homebook</title>
 </head>
 <body>
+{{.CozyBar}}
 
-<div id="root" role="application" data-token="{{.Token}}" data-cozy-stack="{{.Domain}}"></div>
+<div id="root" role="application" data-token="{{.Token}}" data-cozy-stack="{{.Domain}}" data-cozy-token="{{.Token}}" data-cozy-domain="{{.Domain}}"></div>
 
 <script src="bundle.js"></script>
 </body>
