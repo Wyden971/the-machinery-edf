@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     <link rel="stylesheet" type="text/css" href="lib/Ionicons/css/ionicons.min.css"/>
     <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css"/>
@@ -19,9 +21,12 @@
     <title>Homebook</title>
 </head>
 <body>
-{{.CozyBar}}
 
-<div id="root" role="application" data-token="{{.Token}}" data-cozy-stack="{{.Domain}}" data-cozy-token="{{.Token}}" data-cozy-domain="{{.Domain}}"></div>
+
+<div id="root" role="application" data-token="{{.Token}}" data-cozy-stack="{{.Domain}}" data-cozy-token="{{.Token}}"
+     data-cozy-domain="{{.Domain}}"></div>
+
+{{.CozyBar}}
 
 <script src="bundle.js"></script>
 </body>

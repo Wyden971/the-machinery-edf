@@ -32340,6 +32340,10 @@ var _Footer = __webpack_require__(223);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
+var _TabBar = __webpack_require__(596);
+
+var _TabBar2 = _interopRequireDefault(_TabBar);
+
 var _Navigation = __webpack_require__(228);
 
 var _Navigation2 = _interopRequireDefault(_Navigation);
@@ -32435,7 +32439,7 @@ var App = function (_Component) {
                 null,
                 _react2.default.createElement(
                     'div',
-                    null,
+                    { className: 'app' },
                     _react2.default.createElement(_Header2.default, { cozyURL: this.cozyURL }),
                     _react2.default.createElement(_Navigation2.default, null),
                     _react2.default.createElement(
@@ -32456,7 +32460,8 @@ var App = function (_Component) {
                         _react2.default.createElement(_reactRouterDom.Route, { path: '/aide', component: _InConstruction2.default, type: 'switch' }),
                         _react2.default.createElement(_reactRouterDom.Route, { path: '/a-propos', component: _InConstruction2.default, type: 'switch' })
                     ),
-                    _react2.default.createElement(_Footer2.default, null)
+                    _react2.default.createElement(_Footer2.default, null),
+                    _react2.default.createElement(_TabBar2.default, null)
                 )
             );
         }
@@ -56077,6 +56082,132 @@ var ContactModal = function (_Component) {
 }(_react.Component);
 
 exports.default = ContactModal;
+
+/***/ }),
+/* 596 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(25);
+
+var _classnames = __webpack_require__(60);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _propTypes = __webpack_require__(19);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+__webpack_require__(597);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TabBar = function (_Component) {
+    _inherits(TabBar, _Component);
+
+    function TabBar(props, context) {
+        _classCallCheck(this, TabBar);
+
+        var _this = _possibleConstructorReturn(this, (TabBar.__proto__ || Object.getPrototypeOf(TabBar)).call(this, props, context));
+
+        _this.state = {
+            route: _this.context.router.route.location
+        };
+        return _this;
+    }
+
+    _createClass(TabBar, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'tabBar' },
+                _react2.default.createElement(
+                    'ul',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        { className: (0, _classnames2.default)({ "active": /^\/Documents/.test(this.state.route.pathname) }) },
+                        _react2.default.createElement(
+                            _reactRouterDom.Link,
+                            { to: '/Documents' },
+                            _react2.default.createElement('i', { className: 'ion-ios-folder' }),
+                            'Documents'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        { className: (0, _classnames2.default)({ "active": this.state.route.pathname == '/donnees' }) },
+                        _react2.default.createElement(
+                            _reactRouterDom.Link,
+                            { to: '/donnees' },
+                            _react2.default.createElement('i', { className: 'ion-ios-paper-outline' }),
+                            'Donn\xE9es'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        { className: (0, _classnames2.default)({ "active": this.state.route.pathname == '/rappels' }) },
+                        _react2.default.createElement(
+                            _reactRouterDom.Link,
+                            { to: '/rappels' },
+                            _react2.default.createElement('i', { className: 'ion-ios-checkmark-outline' }),
+                            'Rappels'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        { className: (0, _classnames2.default)({ "active": this.state.route.pathname == '/contacts' }) },
+                        _react2.default.createElement(
+                            _reactRouterDom.Link,
+                            { to: '/contacts' },
+                            _react2.default.createElement('i', { className: 'ion-ios-bookmarks-outline' }),
+                            'Contacts'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return TabBar;
+}(_react.Component);
+
+exports.default = TabBar;
+;
+TabBar.contextTypes = {
+    router: _propTypes2.default.shape({
+        history: _propTypes2.default.shape({
+            push: _propTypes2.default.func.isRequired,
+            replace: _propTypes2.default.func.isRequired,
+            createHref: _propTypes2.default.func.isRequired
+        }).isRequired
+    }).isRequired
+};
+
+/***/ }),
+/* 597 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

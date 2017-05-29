@@ -17,6 +17,26 @@
       "folder": "/",
       "index": "index.html",
       "public": false
+    },
+    "/Documents": {
+      "folder": "/",
+      "index": "index.html",
+      "public": false
+    },
+    "/rappels": {
+      "folder": "/",
+      "index": "index.html",
+      "public": false
+    },
+    "/donnees": {
+      "folder": "/",
+      "index": "index.html",
+      "public": false
+    },
+    "/contacts": {
+      "folder": "/",
+      "index": "index.html",
+      "public": false
     }
   },
   "permissions": {
