@@ -73,6 +73,10 @@
         "description" : "App required contacts access",
         "type": "com.homebook.contacts"
     },
+    "analytics": {
+        "description" : "App required analytics access",
+        "type": "com.homebook.analytics"
+    },
      "mail": {
        "description": "Required to send a congratulations email to your friends",
        "type": "io.cozy.jobs",
