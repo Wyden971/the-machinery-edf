@@ -77,6 +77,10 @@
         "description" : "App required analytics access",
         "type": "com.homebook.analytics"
     },
+    "metas": {
+        "description" : "App required metas access",
+        "type": "com.homebook.meta"
+    },
      "mail": {
        "description": "Required to send a congratulations email to your friends",
        "type": "io.cozy.jobs",
